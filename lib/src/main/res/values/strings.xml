@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">lib</string>
+    <string name="img_index">%d/%d</string>
+</resources>
