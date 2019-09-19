@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_show)
             .setOnClickListener {
                 ImageViewer
+                    .setStartPosition(2)
                     .setImageList(arrayListOf(
                         "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568269644157&di=5cc21a70390ebae62ed3a954c62fd4cd&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201608%2F17%2F20160817123942_tfAu8.jpeg",
                         "https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=a62e824376d98d1069d40a31113eb807/838ba61ea8d3fd1fc9c7b6853a4e251f94ca5f46.jpg",

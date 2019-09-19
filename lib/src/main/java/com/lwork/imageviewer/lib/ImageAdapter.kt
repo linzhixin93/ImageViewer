@@ -1,6 +1,7 @@
 package com.lwork.imageviewer.lib
 
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,15 +23,19 @@ import com.bumptech.glide.request.target.Target
 
 class ImageAdapter : PagerAdapter() {
 
-    lateinit var imageList : List<String>
+    lateinit var imageList: List<String>
 
     override fun getCount(): Int = imageList.size
 
     override fun isViewFromObject(view: View, obj: Any): Boolean = view == obj
 
+    lateinit var onImageClick: View.OnClickListener
+
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val imgItem = LayoutInflater.from(container.context).inflate(R.layout.item_image, container, false)
+        val imgItem =
+            LayoutInflater.from(container.context).inflate(R.layout.item_image, container, false)
         val iv = imgItem.findViewById<ImageView>(R.id.photo_view)
+        iv.setOnClickListener(onImageClick)
         val pb = imgItem.findViewById<ProgressBar>(R.id.pb_image_item)
         container.addView(imgItem)
         Glide.with(container.context)

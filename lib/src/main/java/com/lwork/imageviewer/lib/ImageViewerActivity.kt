@@ -32,10 +32,14 @@ class ImageViewerActivity : AppCompatActivity() {
         }
         val vp = findViewById<ViewPager>(R.id.vp_image)
         val indicator = findViewById<TextView>(R.id.tv_image_indicator)
-        indicator.text = resources.getString(R.string.img_index, 1, ImageViewer.imageList.size)
+        indicator.text = resources.getString(R.string.img_index, ImageViewer.startPosition + 1, ImageViewer.imageList.size)
         vp.adapter = ImageAdapter().apply {
             imageList = ImageViewer.imageList
+            onImageClick = View.OnClickListener {
+                finish()
+            }
         }
+        vp.setCurrentItem(ImageViewer.startPosition, false)
         vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,

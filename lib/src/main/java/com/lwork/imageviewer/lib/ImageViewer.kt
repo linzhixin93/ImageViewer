@@ -13,6 +13,13 @@ object ImageViewer {
 
     lateinit var imageList: List<String>
 
+    var startPosition = 0
+
+    fun setStartPosition(position : Int) : ImageViewer {
+        startPosition = position
+        return this
+    }
+
     fun setImageList(list: List<String>): ImageViewer {
         imageList = list
         return this
